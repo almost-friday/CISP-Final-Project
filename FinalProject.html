@@ -1,10 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <title>CISP301 Final</title>
   <link rel="stylesheet" type="text/css" href="Project.css">
-    <script src="Project.js"></script>
 </head>
 <body>
     <div id="TitleScreen">
@@ -19,35 +18,41 @@
 
         <div class="MenuBar">
             <h1>Game Style:</h1>
-            <button type="button" id="PvC" class="GenericButton" onclick="ShowOptions(true)">
+            <button type="button" id="playerVsComputer" class="GenericButton" onclick="ShowOptions(true)">
                 Player Vs. Computer
             </button>
 
-            <button type="button" id="PvP" class="GenericButton" onclick="ShowOptions(false)">
+            <button type="button" id="playerVsPlayer" class="GenericButton" onclick="ShowOptions(false)">
                 Player Vs. Player
             </button>
         </div>
 
-        <div class="MenuBar" id="PvcOptions">
+
+        <div class="MenuBar" id="playerVsComputerOptions">
             <h1>Difficulty:</h1>
-            <button type="button" class="GenericButton">
+            <button type="button" class="GenericButton" onclick="ChooseDifficulty(0)">
                 Candy From A Baby
             </button>
 
-            <button type="button" class="GenericButton">
+            <button type="button" class="GenericButton" onclick="ChooseDifficulty(1)">
                 Capital Murder
             </button>
 
-            <button type="button" class="GenericButton">
+            <button type="button" class="GenericButton" onclick="ChooseDifficulty(2)">
                 Crimes Against Humanity
             </button>
         </div>
 
-        <div class="MenuBar" id="PvpOptions">
+        <div class="MenuBar" id="playerVsPlayerOptions">
             <h1>Custom Word:</h1>
+            <input type="password" maxlength="12" required />
+        </div>
 
+        <div id="Play">
+            <button type="button" id="PlayButton"><img src="resources/Play.gif" alt="Play!" width="200" height="66" /></button>
         </div>
     </div>
 
+    <script src="Project.js"></script>
 </body>
 </html>

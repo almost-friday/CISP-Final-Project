@@ -1,16 +1,67 @@
 body {
-    background-color : black;
+    background-color : rgb(0,0,0);
     font-family : "Times New Roman";
+}
+
+h1 {
+    color : grey;
 }
 
 
 #TitleScreen{
     position : relative;
     margin : 0 auto;    
-    top : 100px;
+    top : 50px;
     width : 100%;
 
     color : grey;
     text-align : center;
     font-size : 2em;
+}
+
+#Gallows {
+    width : 400px;
+    height : 400px;
+    margin : auto;
+}
+
+#Container {
+    margin : auto;
+    width : 600px;
+}
+
+#Play {
+    display:inline-block;
+    vertical-align:top;
+    position:fixed;
+}
+#PlayButton {
+    background-color:transparent;
+    background-repeat:no-repeat;
+    border:none;
+    overflow: hidden;
+    outline:none;
+}
+
+.GenericButton {
+    background-color : black;
+    border : solid;
+    border-color : rgb(100, 100, 100);
+    border-radius : 10px;
+    color : rgb(175, 175, 175);
+    width : 180px;
+    height : 40px;
+}
+
+.GenericButton:hover {
+    background-color : rgb(50, 50, 50);
+}
+.GenericButton:focus {
+    background-color : rgb(40, 40, 40);
+}
+
+.MenuBar {
+    width : 290px;
+    display : inline-block;
+    vertical-align : top;
 }
