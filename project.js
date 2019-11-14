@@ -1,6 +1,7 @@
 var gameStyle = false;
 var difficulty = -1;
 
+var TitleScreen = document.getElementById("TitleScreen");
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
@@ -40,5 +41,34 @@ function ChooseDifficulty(difficulty) {
 }
 
 function Play() {
+    TitleScreen.style.display = "none";
 
+
+    var EasyWords = [
+        "cookie", "cucumber", "apple", "peach", "pasta", "pear", "carrot", "pie", "banana", "lemon", "cereal", "oatmeal", "egg", "pancake", "steak", "fish", "lettuce", "tomato",
+        "bread", "cake", "salt", "juice", "coffee", "sausage"
+
+    ]
+
+    var MediumWords = [
+
+    ]
+
+    var HardWords = [
+          "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
+    ]
+    var word = "";
+
+    if (difficulty == 0) {
+        word = EasyWords[getRandomInt(EasyWords.length)];
+    } else if (difficulty == 1) {
+        word = MediumWords[getRandomInt(MediumWords.length)];
+    } else {
+        word = HardWords[getRandomInt(HardWords.length)];
+    }
+    console.debug(word);
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
 }
