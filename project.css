@@ -37,16 +37,6 @@ h1 {
     height:100%;
 }
 
-#GallowImage {
-    width : 45%;
-    height : 60%;
-    border : solid;
-    border-color:white;
-    float:left;
-    text-align:center;
-    overflow:hidden;
-}
-
 #Play {
     display:inline-block;
     vertical-align:top;
@@ -59,12 +49,30 @@ h1 {
     overflow: hidden;
     outline:none;
 }
-#Underlines {
+#GallowImage {
     width : 45%;
-    height : 60%;
+    height : 500px;
     border : solid;
     border-color:white;
+    float:left;
+    text-align:center;
+}
+#Underlines {
+    border : solid;
+    border-color:white;
+    position:relative;
     float:right;
+    width : 45%;
+    height : 100px;
+    top:400px;
+}
+#Guess{
+    position:absolute;
+    width:99%;
+    height:350px;
+        bottom:0;
+    border : solid;
+    border-color:white;
 }
 
 .GenericButton {
