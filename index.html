@@ -10,9 +10,9 @@
         <img src="resources/Title.gif" alt="Hangman" width="600" height="150"/>
         <p>A game made by Bernard, Erik, Nathan, and Carlo</p>
 
-    <div id="Gallows">
-        <img src="resources/Gallows.gif" alt="Gallows" width="400" height="500">
-    </div>
+        <div id="Gallows">
+            <img src="resources/Gallows.gif" alt="Gallows" width="400" height="500">
+        </div>
 
         <div id="Container">
 
@@ -21,7 +21,6 @@
                 <button type="button" id="playerVsComputer" class="GenericButton" onclick="ShowOptions(true)">
                     Player Vs. Computer
                 </button>
-
                 <button type="button" id="playerVsPlayer" class="GenericButton" onclick="ShowOptions(false)">
                     Player Vs. Player
                 </button>
@@ -49,8 +48,21 @@
             </div>
 
             <div id="Play">
-                <img id="PlayButton" src="resources/Play.gif" alt="Play!" width="200" height="66" onclick="Play()" />
+                <img id="PlayButton" src="resources/Play.gif" alt="Play!" width="200" height="66" onclick="SetupGame()" />
             </div>
+        </div>
+    </div>
+
+    <div id="Game">
+        <div id="GallowImage">
+            <img src="resources/Gallows1.gif" alt="Gallows" width="400" height="400">
+        </div>
+        <div id="Underlines">
+
+        </div>
+        <div id="Guess">
+          
+Random-Words
         </div>
     </div>
 
