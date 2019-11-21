@@ -1,12 +1,10 @@
 var gameStyle = false;
-var difficulty = 0; console.warn("MAKE SURE TO RESET THE DIFFICULTY")
+var difficulty = -1; console.warn("MAKE SURE TO RESET THE DIFFICULTY")
 
 var TitleScreen = document.getElementById("TitleScreen");
-
 var Game = document.getElementById("Game");
 var Underlines = document.getElementById("Underlines");
 var Guess = document.getElementById("Guess");
-
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
@@ -16,7 +14,6 @@ PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
 Game.style.display = "none";
 
-SetupGame();
 
 function ShowOptions(style) {
     // true for single player, false for 2 players
@@ -101,11 +98,8 @@ function showLetters(keycode) {
     var block = document.createElement("div");
     var letter = document.createElement("h1");
     block.appendChild(letter);
+    block.className = "Letter"
     letter.innerHTML = String.fromCharCode(keycode);
-    block.style.display = "inline-block";
-    block.style.overflow = "hidden";
-    block.style.width = "60";
-    block.style.height = "60";
     Guess.appendChild(block);
 }
 
