@@ -2,9 +2,11 @@ var gameStyle = false;
 var difficulty = 0; console.warn("MAKE SURE TO RESET THE DIFFICULTY")
 
 var TitleScreen = document.getElementById("TitleScreen");
+
 var Game = document.getElementById("Game");
 var Underlines = document.getElementById("Underlines");
 var Guess = document.getElementById("Guess");
+
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
