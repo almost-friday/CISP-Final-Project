@@ -1,5 +1,11 @@
 var gameStyle = false;
-var difficulty = -1;
+var difficulty = 0; console.warn("MAKE SURE TO RESET THE DIFFICULTY")
+
+var TitleScreen = document.getElementById("TitleScreen");
+
+var Game = document.getElementById("Game");
+var Underlines = document.getElementById("Underlines");
+var Guess = document.getElementById("Guess");
 
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
@@ -8,6 +14,9 @@ var PlayButton = document.getElementById("PlayButton");
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
+Game.style.display = "none";
+
+SetupGame();
 
 function ShowOptions(style) {
     // true for single player, false for 2 players
@@ -39,6 +48,78 @@ function ChooseDifficulty(difficulty) {
    } 
 }
 
-function Play() {
+function SetupGame() {
 
+    var EasyWords = [
+        "cookie", "cucumber", "apple", "peach", "pasta", "pear", "carrot", "pie", "banana", "lemon", "cereal", "oatmeal", "egg", "pancake", "steak", "fish", "lettuce", "tomato",
+        "bread", "cake", "salt", "juice", "coffee", "sausage"
+
+    ]
+
+    var MediumWords = [
+        "sandwich"
+    ]
+
+    var HardWords = [
+          "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
+    ]
+    var word = "";
+
+    if (difficulty == 0) {
+        word = EasyWords[getRandomInt(EasyWords.length)];
+    } else if (difficulty == 1) {
+        word = MediumWords[getRandomInt(MediumWords.length)];
+    } else {
+        word = HardWords[getRandomInt(HardWords.length)];
+    }
+    console.debug(word);
+
+    TitleScreen.style.display = "none";
+    Game.style.display = "inline-block";
+
+    for (var i = 0; i < word.length; i ++){
+        showLines();
+    }
+    for (var i = 65; i <= 90; i++) {
+        showLetters(i);
+    }
+}
+
+function showLines() {
+    var block = document.createElement("div");
+    var line = document.createElement("img");
+    block.appendChild(line);
+    line.src = getImageTag();
+    line.width = "80";
+    line.height = "80";
+    block.style.cssFloat = "left";
+    block.style.position = "relative";
+    Underlines.appendChild(block);
+}
+
+function showLetters(keycode) {
+    var block = document.createElement("div");
+    var letter = document.createElement("h1");
+    block.appendChild(letter);
+    letter.innerHTML = String.fromCharCode(keycode);
+    block.style.display = "inline-block";
+    block.style.overflow = "hidden";
+    block.style.width = "60";
+    block.style.height = "60";
+    Guess.appendChild(block);
+}
+
+function getImageTag() {
+    var ImageURLs = [
+        1, 2, 3
+    ]
+
+    var img = 'resources/Line';
+    img += ImageURLs[getRandomInt(3)];
+    img += '.gif';
+    return img;
+}
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
 }
