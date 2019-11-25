@@ -9,47 +9,60 @@
     <div id="TitleScreen">
         <img src="resources/Title.gif" alt="Hangman" width="600" height="150"/>
         <p>A game made by Bernard, Erik, Nathan, and Carlo</p>
+
+        <div id="Gallows">
+            <img src="resources/Gallows.gif" alt="Gallows" width="400" height="500">
+        </div>
+
+        <div id="Container">
+
+            <div class="MenuBar">
+                <h1>Game Style:</h1>
+                <button type="button" id="playerVsComputer" class="GenericButton" onclick="ShowOptions(true)">
+                    Player Vs. Computer
+                </button>
+                <button type="button" id="playerVsPlayer" class="GenericButton" onclick="ShowOptions(false)">
+                    Player Vs. Player
+                </button>
+            </div>
+
+
+            <div class="MenuBar" id="playerVsComputerOptions">
+                <h1>Difficulty:</h1>
+                <button type="button" class="GenericButton" onclick="ChooseDifficulty(0)">
+                    Candy From A Baby
+                </button>
+
+                <button type="button" class="GenericButton" onclick="ChooseDifficulty(1)">
+                    Capital Murder
+                </button>
+
+                <button type="button" class="GenericButton" onclick="ChooseDifficulty(2)">
+                    Crimes Against Humanity
+                </button>
+            </div>
+
+            <div class="MenuBar" id="playerVsPlayerOptions">
+                <h1>Custom Word:</h1>
+                <input type="password" maxlength="12" required />
+            </div>
+
+            <div id="Play">
+                <img id="PlayButton" src="resources/Play.gif" alt="Play!" width="200" height="66" onclick="SetupGame()" />
+            </div>
+        </div>
     </div>
-    <div id="Gallows">
-        <img src="resources/Gallows.gif" alt="Gallows" width="400" height="500">
-    </div>
 
-    <div id="Container">
-
-        <div class="MenuBar">
-            <h1>Game Style:</h1>
-            <button type="button" id="playerVsComputer" class="GenericButton" onclick="ShowOptions(true)">
-                Player Vs. Computer
-            </button>
-
-            <button type="button" id="playerVsPlayer" class="GenericButton" onclick="ShowOptions(false)">
-                Player Vs. Player
-            </button>
+    <div id="Game">
+        <div id="GallowImage">
+            <img src="resources/Gallows1.gif" alt="Gallows" width="400" height="400">
         </div>
+        <div id="Underlines">
 
-
-        <div class="MenuBar" id="playerVsComputerOptions">
-            <h1>Difficulty:</h1>
-            <button type="button" class="GenericButton" onclick="ChooseDifficulty(0)">
-                Candy From A Baby
-            </button>
-
-            <button type="button" class="GenericButton" onclick="ChooseDifficulty(1)">
-                Capital Murder
-            </button>
-
-            <button type="button" class="GenericButton" onclick="ChooseDifficulty(2)">
-                Crimes Against Humanity
-            </button>
         </div>
-
-        <div class="MenuBar" id="playerVsPlayerOptions">
-            <h1>Custom Word:</h1>
-            <input type="password" maxlength="12" required />
-        </div>
-
-        <div id="Play">
-            <button type="button" id="PlayButton"><img src="resources/Play.gif" alt="Play!" width="200" height="66" /></button>
+        <div id="Guess">
+          
+Random-Words
         </div>
     </div>
 

@@ -14,8 +14,11 @@ h1 {
     top : 50px;
     width : 100%;
 
-    color : grey;
+    
     text-align : center;
+}
+#TitleScreen.p {
+    color : grey;
     font-size : 2em;
 }
 
@@ -29,11 +32,15 @@ h1 {
     margin : auto;
     width : 600px;
 }
+#Game {
+    width :100%;
+    height:100%;
+}
 
 #Play {
     display:inline-block;
     vertical-align:top;
-    position:fixed;
+    position:absolute;
 }
 #PlayButton {
     background-color:transparent;
@@ -41,6 +48,39 @@ h1 {
     border:none;
     overflow: hidden;
     outline:none;
+}
+#GallowImage {
+    width : 45%;
+    height : 500px;
+    border : solid;
+    border-color:white;
+    float:left;
+    text-align:center;
+}
+#Underlines {
+    border : solid;
+    border-color:white;
+    position:relative;
+    float:right;
+    width : 45%;
+    height : 100px;
+    top:400px;
+}
+#Guess{
+    position:absolute;
+    width:99%;
+    height:350px;
+        bottom:0;
+    border : solid;
+    border-color:white;
+}
+
+.Letter{
+    width:80px;
+    height:80px;
+    position:relative;
+    float:left;
+    text-align:center;
 }
 
 .GenericButton {
