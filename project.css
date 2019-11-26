@@ -49,11 +49,16 @@ h1 {
     overflow: hidden;
     outline:none;
 }
-#GallowImage {
+#GallowImages {
     width : 45%;
     height : 500px;
     border : solid;
     border-color:white;
+    float:left;
+    text-align:center;
+}
+.GallowImage {
+    position:absolute;
     float:left;
     text-align:center;
 }

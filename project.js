@@ -1,5 +1,4 @@
 var gameStyle = false;
-var difficulty = -1; console.warn("MAKE SURE TO RESET THE DIFFICULTY")
 
 var TitleScreen = document.getElementById("TitleScreen");
 var Game = document.getElementById("Game");
@@ -30,6 +29,8 @@ function ShowOptions(style) {
 }
 function ChooseDifficulty(difficulty) {
     if (this.difficulty < 0) { // Only calls when the difficulty hasn't been set!
+
+	console.log("FAFWAF");
         PlayButton.style.opacity = 0;
         PlayButton.style.display = "inline-block";
         var opac = 0;
