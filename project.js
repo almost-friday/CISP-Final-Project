@@ -8,11 +8,13 @@ var Guess = document.getElementById("Guess");
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
+const WordInput = document.getElementById("WordInput");
 
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
 Game.style.display = "none";
+WordInput.addEventListener("input", ShowPlay);
 
 
 function ShowOptions(style) {
@@ -28,21 +30,26 @@ function ShowOptions(style) {
         PvcOptions.style.display = "none";
     }
 }
-function ChooseDifficulty(difficulty) {
-    if (this.difficulty < 0) { // Only calls when the difficulty hasn't been set!
-        PlayButton.style.opacity = 0;
-        PlayButton.style.display = "inline-block";
-        var opac = 0;
-        var anim = setInterval(ShowPlay, 10);
 
-    }
-    this.difficulty = difficulty;
+function ShowPlay() {
+    WordInput.removeEventListener("input", ShowPlay);
+    PlayButton.style.opacity = 0;
+    PlayButton.style.display = "inline-block";
+    var opac = 0;
+    var anim = setInterval(FadePlay, 10);
 
-    function ShowPlay() {
+    function FadePlay() {
         opac += .02;
         PlayButton.style.opacity = opac;
         if (opac >= 1) clearInterval(anim);
-   } 
+    } 
+}
+
+function ChooseDifficulty(difficulty) {
+    if (this.difficulty < 0) { // Only calls when the difficulty hasn't been set!
+        ShowPlay();
+    }
+    this.difficulty = difficulty;
 }
 
 function SetupGame() {
