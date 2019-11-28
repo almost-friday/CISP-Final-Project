@@ -69,14 +69,21 @@ function SetupGame() {
     ]
     var word = "";
 
-    if (difficulty == 0) {
+    switch(difficulty) {
+      case -1:
+        word = WordInput.value;
+        break;
+      case 0:
         word = EasyWords[getRandomInt(EasyWords.length)];
-    } else if (difficulty == 1) {
+        break;
+      case 1:
         word = MediumWords[getRandomInt(MediumWords.length)];
-    } else {
+        break;
+      case 2:
         word = HardWords[getRandomInt(HardWords.length)];
+        break;
     }
-    console.debug(word);
+    console.log(word);
 
     TitleScreen.style.display = "none";
     Game.style.display = "inline-block";
