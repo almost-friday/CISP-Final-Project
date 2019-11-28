@@ -1,4 +1,5 @@
 var gameStyle = false;
+var difficulty = -1;
 
 var TitleScreen = document.getElementById("TitleScreen");
 var Game = document.getElementById("Game");
@@ -7,6 +8,7 @@ var Guess = document.getElementById("Guess");
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
+var GuessesLeft = document.getElementById("GuessesLeft");
 
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
@@ -29,8 +31,6 @@ function ShowOptions(style) {
 }
 function ChooseDifficulty(difficulty) {
     if (this.difficulty < 0) { // Only calls when the difficulty hasn't been set!
-
-	console.log("FAFWAF");
         PlayButton.style.opacity = 0;
         PlayButton.style.display = "inline-block";
         var opac = 0;
@@ -45,6 +45,9 @@ function ChooseDifficulty(difficulty) {
         if (opac >= 1) clearInterval(anim);
    } 
 }
+
+    var word = "";
+    var guesses = 5;
 
 function SetupGame() {
 
@@ -61,7 +64,7 @@ function SetupGame() {
     var HardWords = [
           "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
     ]
-    var word = "";
+
 
     if (difficulty == 0) {
         word = EasyWords[getRandomInt(EasyWords.length)];
@@ -70,39 +73,80 @@ function SetupGame() {
     } else {
         word = HardWords[getRandomInt(HardWords.length)];
     }
+	word = word.toUpperCase();
     console.debug(word);
+
 
     TitleScreen.style.display = "none";
     Game.style.display = "inline-block";
 
     for (var i = 0; i < word.length; i ++){
-        showLines();
+        showLines(word.charAt(i));
     }
+	var Lines = document.getElementsByClassName("Line");
+	console.log(Lines);
+
     for (var i = 65; i <= 90; i++) {
         showLetters(i);
     }
 }
 
-function showLines() {
+
+function showLines(Letter) {
     var block = document.createElement("div");
     var line = document.createElement("img");
     block.appendChild(line);
     line.src = getImageTag();
     line.width = "80";
     line.height = "80";
+	line.className = "Line";
+	line.id = Letter;
     block.style.cssFloat = "left";
     block.style.position = "relative";
     Underlines.appendChild(block);
+
+}
+
+function UpdateLine (char){
+	for (var i = 0; i < word.length; i++){
+
+		if (Lines[i].id == char) {
+		    	var letter = document.createElement("h1");
+			letter.innerHTML = char;
+			block.appendChild(letter);
+			Lines[i].img.src = "";
+		}
+	}
 }
 
 function showLetters(keycode) {
     var block = document.createElement("div");
     var letter = document.createElement("h1");
+	var image = document.createElement("img");
+	image.src = "";
     block.appendChild(letter);
     block.className = "Letter"
+	block.onclick = function(){MakeGuess(String.fromCharCode(keycode))}
     letter.innerHTML = String.fromCharCode(keycode);
+	block.appendChild(image);
     Guess.appendChild(block);
+
+function MakeGuess(Letter){
+		console.log(Letter);
+
+	block.onclick = function(){return false;}
+
+	if (word.includes(Letter)){
+		UpdateLine(Letter);
+		letter.innerHTML = "";
+	} else {
+		image.src = "resources/X.png"
+		guesses--;
+		GuessesLeft.innerHTML = "Guesses Left: " + guesses;
+	}
 }
+}
+
 
 function getImageTag() {
     var ImageURLs = [

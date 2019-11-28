@@ -17,7 +17,7 @@ h1 {
     
     text-align : center;
 }
-#TitleScreen.p {
+#TitleScreen p {
     color : grey;
     font-size : 2em;
 }
@@ -49,16 +49,11 @@ h1 {
     overflow: hidden;
     outline:none;
 }
-#GallowImages {
+#GallowImage {
     width : 45%;
     height : 500px;
     border : solid;
     border-color:white;
-    float:left;
-    text-align:center;
-}
-.GallowImage {
-    position:absolute;
     float:left;
     text-align:center;
 }
@@ -69,7 +64,7 @@ h1 {
     float:right;
     width : 45%;
     height : 100px;
-    top:400px;
+    top:300px;
 }
 #Guess{
     position:absolute;
@@ -86,6 +81,18 @@ h1 {
     position:relative;
     float:left;
     text-align:center;
+}
+.Letter h1 {
+width:100%;
+height:100%;
+text-align: center;
+margin: auto;
+	position:absolute;
+	font-size : 60px;
+}
+.Letter img{
+    position:relative;
+	float:top;
 }
 
 .GenericButton {
