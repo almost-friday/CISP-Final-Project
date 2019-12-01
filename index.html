@@ -18,28 +18,26 @@
 
             <div class="MenuBar">
                 <h1>Game Style:</h1>
-                <button type="button" id="playerVsComputer" class="GenericButton" onclick="ShowOptions(true)">
-                    Player Vs. Computer
+                <button type="button" id="singlePlayer" class="GenericButton" onclick="CurrentGame.showOptions(1)">
+                    Single Player
                 </button>
-                <button type="button" id="playerVsPlayer" class="GenericButton" onclick="ShowOptions(false)">
-                    Player Vs. Player
+                <button type="button" id="customMode" class="GenericButton" onclick="CurrentGame.showOptions(0)">
+                   Custom Word
                 </button>
             </div>
 
 
             <div class="MenuBar" id="playerVsComputerOptions">
-                <h1>Difficulty:</h1>
-                <button type="button" class="GenericButton" onclick="ChooseDifficulty(0)">
-                    Candy From A Baby
-                </button>
-
-                <button type="button" class="GenericButton" onclick="ChooseDifficulty(1)">
-                    Capital Murder
-                </button>
-
-                <button type="button" class="GenericButton" onclick="ChooseDifficulty(2)">
-                    Crimes Against Humanity
-                </button>
+                <h1>Theme:</h1>
+                <input type="checkbox" class="ThemeCheckbox" onclick="CurrentGame.chooseTheme(1)">
+                    Food
+                </input>
+                <input type="checkbox" class="ThemeCheckbox" onclick="CurrentGame.chooseTheme(2)">
+                    Countries 
+                </input>
+                <input type="checkbox" class="ThemeCheckbox" onclick="CurrentGame.chooseTheme(4)">
+                    Cars    
+                </input>
             </div>
 
             <div class="MenuBar" id="playerVsPlayerOptions">
@@ -48,7 +46,7 @@
             </div>
 
             <div id="Play">
-                <img id="PlayButton" src="resources/Play.gif" alt="Play!" width="200" height="66" onclick="SetupGame()" />
+                <img id="PlayButton" src="resources/Play.gif" alt="Play!" width="200" height="66" onclick="CurrentGame.startGame()" />
             </div>
         </div>
     </div>
