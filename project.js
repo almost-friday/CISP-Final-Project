@@ -13,7 +13,7 @@ var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
 var GuessesLeft = document.getElementById("GuessesLeft");
-
+//blablabbla
 // These lines hide some elements of the website
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
