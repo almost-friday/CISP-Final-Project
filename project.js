@@ -158,7 +158,7 @@ function MakeGuess(Letter){
 	block.onclick = function(){return false;}
     if(guesses > 0 && correctGuesses < word.length){
         if (word.includes(Letter)){
-            image.src = "resources/check.png"
+            Image.src = "resources/check.png"
             console.log("A correct letter has been guessed!");
             UpdateLine(Letter);
         } else {
