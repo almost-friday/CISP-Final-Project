@@ -11,6 +11,8 @@ var TitleScreen = document.getElementById("TitleScreen");
 var Game = document.getElementById("Game");
 var Underlines = document.getElementById("Underlines");
 var Guess = document.getElementById("Guess");
+var GallowsImage = document.getElementById("GallowImage");
+var Images = GallowsImage.childNodes;
 var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
@@ -88,8 +90,6 @@ function SetupGame() {
         showLines(word.charAt(i));
     }
     Lines = document.getElementsByClassName("Line");
-    console.log(Lines);
-	console.log(Lines[0]);
 
     for (var i = 65; i <= 90; i++) {
         showLetters(i);
@@ -113,6 +113,27 @@ function UpdateLine (char){ // Checks the word to see is the guessed letter is i
             Lines[i].innerHTML = char;
             correctGuesses ++;
         }
+    }
+}
+
+function UpdateGallows () {
+    console.log(Images);
+    switch(guesses){
+        case 4:
+            Images[3].src = "resources/Gallows1.gif";
+            break;
+        case 3:
+            Images[5].src = "resources/Gallows2.gif";
+            break;
+        case 2:
+            Images[7].src = "resources/Gallows3.gif";
+            break;
+        case 1:
+            Images[7].src = "resources/Gallows4.gif";
+            break;
+        case 0:
+            Images[7].src = "resources/Gallows5.gif";
+            break;
     }
 }
 
@@ -142,6 +163,7 @@ function MakeGuess(Letter){
             image.src = "resources/X.png"
             guesses--;
             GuessesLeft.innerHTML = "Guesses Left: " + guesses;
+            UpdateGallows();
         }
     }
 
@@ -150,7 +172,7 @@ function MakeGuess(Letter){
         Game.appendChild(message);
 
         if (guesses <= 0){
-            message.innerHTML = "Sorry, You Lose!";
+            message.innerHTML = "Sorry, You Lose!<br>The Word Was: " + word;
         } else {
             message.innerHTML = "Congratulations, You Win!!";
         }
