@@ -24,7 +24,7 @@ const WordInput = document.getElementById("WordInput");
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
-WordInput.addEventListener("input", ChooseTheme(-1));
+WordInput.addEventListener("input", ChooseTheme(3));
 
 function ShowOptions(style) {
     // true for single player, false for 2 players
