@@ -20,7 +20,7 @@ var PlayButton = document.getElementById("PlayButton");
 var GuessesLeft = document.getElementById("GuessesLeft");
 
 // These lines hide some elements of the website
-PvpOptions.style.display = "none";
+//PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
 
