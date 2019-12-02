@@ -4,7 +4,8 @@ var difficulty = -1;
 var word = "";
 var guesses = 5;
 var correctGuesses = 0;
-var Lines;
+
+var Lines; // Assigned to later in the code
 
 // The following lines get references to specific elements of the website that we will dynamically show/hide later in the code
 var TitleScreen = document.getElementById("TitleScreen");
@@ -64,11 +65,12 @@ function SetupGame() {
     ]
 
     var MediumWords = [
-        "sandwich"
+        "afghanistan", "armenia", "palestine", "australia", "barbados", "brazil", "comoros", "croatia", "denmark"
+        , "eritrea", "fiji", "france", "ghana", "germany", "iceland", "japan"
     ]
 
     var HardWords = [
-          "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
+        "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
     ]
 
 
