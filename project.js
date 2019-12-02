@@ -18,13 +18,11 @@ var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
 var GuessesLeft = document.getElementById("GuessesLeft");
-const WordInput = document.getElementById("WordInput");
 
 // These lines hide some elements of the website
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
-WordInput.addEventListener("input", ChooseTheme(3));
 
 function ShowOptions(style) {
     // true for single player, false for 2 players
@@ -45,7 +43,6 @@ function ChooseTheme(theme) {
         PlayButton.style.opacity = 0;
         PlayButton.style.display = "inline-block";
         var opac = 0;
-	WordInput.removeEventListener("input", ChooseTheme);
         var anim = setInterval(ShowPlay, 10);
 
     }
