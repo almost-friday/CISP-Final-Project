@@ -24,7 +24,7 @@ const WordInput = document.getElementById("WordInput");
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
-WordInput.addEventListener("input", ShowPlay);
+WordInput.addEventListener("input", ChooseTheme);
 
 function ShowOptions(style) {
     // true for single player, false for 2 players
@@ -45,7 +45,7 @@ function ChooseTheme(theme) {
         PlayButton.style.opacity = 0;
         PlayButton.style.display = "inline-block";
         var opac = 0;
-	WordInput.removeEventListener("input", ShowPlay);
+	WordInput.removeEventListener("input", ChooseTheme);
         var anim = setInterval(ShowPlay, 10);
 
     }
