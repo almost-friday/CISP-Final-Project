@@ -15,7 +15,7 @@ var Guess = document.getElementById("Guess");
 var GallowsImage = document.getElementById("GallowImage");
 var Images = GallowsImage.childNodes;
 var PvcOptions = document.getElementById("playerVsComputerOptions");
-var PvpOptions = document.getElementById("playerVsPlayerOptions");
+//var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
 var GuessesLeft = document.getElementById("GuessesLeft");
 
