@@ -1,10 +1,6 @@
-// We are defining and initializing several important variables
 var gameStyle = false;
 var difficulty = -1;
-var word = "";
-var guesses = 5;
-
-// The following lines get references to specific elements of the website that we will dynamically show/hide later in the code
+/*
 var TitleScreen = document.getElementById("TitleScreen");
 var Game = document.getElementById("Game");
 var Underlines = document.getElementById("Underlines");
@@ -13,18 +9,101 @@ var PvcOptions = document.getElementById("playerVsComputerOptions");
 var PvpOptions = document.getElementById("playerVsPlayerOptions");
 var PlayButton = document.getElementById("PlayButton");
 var GuessesLeft = document.getElementById("GuessesLeft");
-//blablabbla
-// These lines hide some elements of the website
+
 PvpOptions.style.display = "none";
 PvcOptions.style.display = "none";
 PlayButton.style.display = "none";
+Game.style.display = "none";
+*/
 
+var GAME_STATE = {
+    SETUP : "setup",
+    PLAYING : "playing",
+    OVER : "over"
+}
+var THEMES = {
+    FOOD : 1,
+    COUNTRIES : 2,
+    CARS : 4
+}
+var WORDS = {
+    [THEMES.FOOD] : ["apple", "banana"],
+    [THEMES.COUNTRIES] : ["china", "france"], 
+    [THEMES.CARS] : ["camaro", "mustang", "audi", "honda"]
+}
+var MAX_GUESSES = 5;
+class Game{
+
+    constructor(options){
+        this.mode = null;
+        this.words_themes = [];
+        this.themes_selected = null;
+        this.maxGuesses = MAX_GUESSES;
+        this.guesses = [];
+        this.word = null;
+        this.gameState =  GAME_STATE.SETUP;
+
+    }
+
+    setupWord(){
+
+        if(mode){
+            this.word = this.generateRandomWord();
+        }else{
+            this.word = this.getCustomWord();
+        }
+        
+    }
+    getCustomWord(){
+
+    }
+
+    generateRandomWord(){
+
+    }
+
+    setupLetters(){
+
+    }
+
+    makeGuess(){
+
+    }
+
+    markWrong(){
+
+    }
+
+    markRight(){
+
+    }
+
+    setLetterDown(index){
+
+    }
+
+    isGameOver(){
+
+    }
+
+    startGame(){
+
+    }
+
+    setupGame(){
+
+    }
+
+}
+
+CurrentGame = new Game();
 
 function ShowOptions(style) {
+    Current.
     // true for single player, false for 2 players
     gameStyle = style;
     console.debug(gameStyle);
-    if (gameStyle == true) {
+    if (gameStyle) {
 
         PvcOptions.style.display = "inline-block";
         PvpOptions.style.display = "none";
@@ -33,7 +112,6 @@ function ShowOptions(style) {
         PvcOptions.style.display = "none";
     }
 }
-
 function ChooseDifficulty(difficulty) {
     if (this.difficulty < 0) { // Only calls when the difficulty hasn't been set!
         PlayButton.style.opacity = 0;
@@ -51,7 +129,9 @@ function ChooseDifficulty(difficulty) {
    } 
 }
 
-// We are initializing several arrays that hold all of the possible
+    var word = "";
+    var guesses = 5;
+
 function SetupGame() {
 
     var EasyWords = [
@@ -67,7 +147,6 @@ function SetupGame() {
     var HardWords = [
           "cognac", "beignets", "stromboli", "jumbalaya", "enokitake", "acerola", "loquat", "mangosteen", "paneer", "samosas", "fajitas", "tostada", "eucharist", "crabcake"
     ]
-
 
     if (difficulty == 0) {
         word = EasyWords[getRandomInt(EasyWords.length)];
@@ -87,10 +166,10 @@ function SetupGame() {
         showLines(word.charAt(i));
     }
 	var Lines = document.getElementsByClassName("Line");
-	console.log(Lines[0].id);
+	console.log(Lines);
 
     for (var i = 65; i <= 90; i++) {
-        showLetters(i);
+        showLetters(i, Lines);
     }
 }
 
@@ -110,36 +189,38 @@ function showLines(Letter) {
 
 }
 
-function UpdateLine (char){
+function UpdateLine (char, Lines){
 	for (var i = 0; i < word.length; i++){
 
 		if (Lines[i].id == char) {
 		    	var letter = document.createElement("h1");
 			letter.innerHTML = char;
+            //block.appendChild(letter);
+            console.log("Lines is:", Lines, "i:", i, "Lines[i]:", Lines[i]);
 			Lines[i].img.src = "";
 		}
 	}
 }
 
-function showLetters(keycode) {
+function showLetters(keycode, Lines) {
     var block = document.createElement("div");
     var letter = document.createElement("h1");
 	var image = document.createElement("img");
 	image.src = "";
     block.appendChild(letter);
     block.className = "Letter"
-	block.onclick = function(){MakeGuess(String.fromCharCode(keycode))}
+	block.onclick = function(){MakeGuess(String.fromCharCode(keycode), Lines)}
     letter.innerHTML = String.fromCharCode(keycode);
 	block.appendChild(image);
     Guess.appendChild(block);
 
-function MakeGuess(Letter){
+function MakeGuess(Letter, Lines){
 		console.log(Letter);
 
 	block.onclick = function(){return false;}
 
 	if (word.includes(Letter)){
-		UpdateLine(Letter);
+		UpdateLine(Letter, Lines);
 		letter.innerHTML = "";
 	} else {
 		image.src = "resources/X.png"
@@ -161,7 +242,6 @@ function getImageTag() {
     return img;
 }
 
-// A handy function that returns a random number with a parameter that controls the maximum
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
