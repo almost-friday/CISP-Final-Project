@@ -1,0 +1,10 @@
+Meeting dates:
+November 12 - We established what we were going to do for our project, then we completed the desired pseudocode
+over the next few days.
+November 17 - We met to start coding the program, with each of us doing what we knew how to do.
+SinceCarlo is new to programming, he initialized the global variables that the rest of us would use in our parts of the code.
+Bernard wrote the HTML and CSS to make the website look right
+Erik designed the main game
+Nathan helped design the main menu of the game, which allows the player to select their options.
+November 30 - We all met and finished our program, with Bernard and Erik completing the Javascript
+for the final version of the program

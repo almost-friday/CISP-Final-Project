@@ -73,6 +73,23 @@ h1 {
     height:auto;
     top:70%;
 }
+.Line {
+    color:grey;
+    font-size : 60px;
+    text-align: center;
+    margin: auto;
+    width:80px;
+    height:80px;
+    position:relative;
+    float: left;
+}
+.Line img {
+    width: 80px;
+    height: 80px;
+
+    float: left;
+    position: relative;
+}
 
 .Letter{
     width:80px;
